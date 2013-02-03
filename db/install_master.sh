@@ -5,6 +5,7 @@
 # This script takes two arguments, the IP addresses of each
 # of the slave servers
 
+easy_install pymongo
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
 rm -rf /etc/apt/sources.list.d/10gen.list
 cat <<EOF>/etc/apt/sources.list.d/10gen.list

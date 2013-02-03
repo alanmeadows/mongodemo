@@ -2,7 +2,7 @@
 
 """
 Load data into master mongo database
-""
+"""
 
 from pymongo import MongoClient
 import csv
