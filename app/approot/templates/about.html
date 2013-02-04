@@ -21,7 +21,7 @@
 	<!-- header starts-->
 	<div id="header-wrap"><div id="header" class="container_16">						
 		
-		<h1 id="logo-text"><a href="#" title="">NephoScale</a></h1>
+		<h1 id="logo-text"><a href="http://www.nephoscale.com" title="">NephoScale</a></h1>
 		<p id="intro">Homicide in the cloud...</p>
 		
 		<!-- navigation -->
@@ -48,11 +48,32 @@
 	
 	<!-- content starts -->
 	<div id="content-outer">
+	
+	<center><table width=80%><tr><td>
+	
+	<h3>About This Demo</h3>
+	
+	<p>This demo deploys three mongo database servers and configures them in a replicaset for redundancy.  It also deploys a Flask based python web application that uses the mongo database servers to deliver a view of the mongo data.  The application is deployed using a single CloudScript template which orchestrates the creation of all resources or even missing resources.</p>
+	
+	<h3>Servers</h3>
+	
+	<table width="80%">
+	<tr><th>Server</th><th>IP Addresses</th><th>Role</th></tr>
+	<tr><td>mongo1</td><td>69.50.230.28, 10.129.148.4</td><td>Database (Primary)</td></tr>
+	<tr><td>mongo2</td><td>69.50.230.29, 10.129.148.5</td><td>Database (Secondary)</td></tr>
+	<tr><td>mongo3</td><td>69.50.230.30, 10.129.148.6</td><td>Database (Secondary)</td></tr>
+	<tr><td>mongoapp</td><td>198.89.115.65, 10.129.148.7</td><td>Web App Server</td></tr>
+	</table>
+	
+	<h3>Deployment</h3>
 
-        <h4>This demo utilizes three mongo servers configured in a replicaset for redundancy.  The application is configured to communicate with any of the three replicas which happen to be up.</h4>
-        <h4>The demo utilizes NephoScale CloudScript and idempotency to create missing resources (servers) which are missing and need to be created from scratch.</h4>
-        <h4>Utilizing <b>mongodemo</b> project on GitHub, the demo creates servers using NephoScale base image from scratch, running first boot scripts where necessary.</h4>
+	<p>The applicaton uses <b>first boot scripts</b> on NephoScale base images to create servers that do useful work from basic images.  Each of the first boot scripts downloads a <a href="https://github.com/alanmeadows/mongodemo">github</a> hosted application and depending on the role of the server, runs the appropriate setup scripts.</p>
 
+	<h3>Idempotency</h3>
+
+	<p>The demo utilizes NephoScale CloudScript and idempotency to create missing resources (servers) which are missing and need to be created from scratch. This means that we can make a simple change on github, delete our <b>mongoapp</b> server and re-run the CloudScript document.  The NephoScale platform will intelligently create the missing resource using the latest github commits.</p>
+
+	</td></tr></table></center>
         </div>
   
 
