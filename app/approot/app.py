@@ -81,7 +81,7 @@ def list():
 @app.route('/about')
 def about():
     if request.method == 'GET':
-        return render_template('about.html', rates=rates)
+        return render_template('about.html')
 
 if __name__ == '__main__':
      app.run(debug=True, host='0.0.0.0', port=80)
